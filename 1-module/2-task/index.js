@@ -10,9 +10,9 @@ function print(text) {
  * чтобы функция sayHello работала корректно
  */
 function isValid(name) {
-if (name.includes(' ') || name.length<4 || name==='NaN') return false
+if (name.includes(' ') || name.length<4 || name==='null') return false
 else return true;
-  }   
+  }
 
 function sayHello() {
   const userName = prompt('Введите ваше имя');
