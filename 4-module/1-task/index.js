@@ -3,5 +3,14 @@
  * @param {Object[]} friends
  * @return {HTMLUListElement}
  */
+
 function makeFriendsList(friends) {
+  let ul = document.createElement('ul');
+  ul.innerHTML = 'FriendsList';
+  for (let friend of friends) {
+    let li = document.createElement('li');
+    li.innerHTML = friend.firstName + ' ' + friend.lastName;
+    ul.append(li);
+  }
+  return ul;
 }
