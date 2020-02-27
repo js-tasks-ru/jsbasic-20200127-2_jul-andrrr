@@ -1,3 +1,54 @@
+ /*В этом задании мы вам предлагаем сделать компонент, который реализует сортируемую 
+таблицу для заранее опредленной структуры данных.
+
+Пример структуры:
+
+let rows = [
+    {
+        name: 'Ilia',
+        age: 25,
+        salary: 1000,
+        city: 'Petrozavodsk'
+    },
+    {
+        name: 'Vasya',
+        age: 14,
+        salary: 1500,
+        city: 'Moscow'
+    }
+];
+Для успешного прохождения тестов, вам нужно поддержать следующую структуру в html:
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Salary</td>
+            <td>City</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ilia</td>
+            <td>25</td>
+            <td>1000</td>
+            <td>Petrozavodsk</td>
+        </tr>
+        ...
+    </tbody>
+</table>
+Данный компонент предполагается использовать следующим образом:
+
+let table = new SortableTable(rows);                 
+let container = document.querySelector('.result');   
+container.appendChild(table.el);                     
+table.sort(0); // Отсортирует созданную таблицу по первой колонке (Name)
+table.sort(0, true); // Отсортирует созданную таблицу по первой колонке 
+(Name) в обратном порядке-->
+
+*/
+
  function SortableTable(rows) {
   
     let countRows = rows.length; 
@@ -8,12 +59,13 @@
         this.el.setAttribute('width','300');
         this.el.setAttribute('height', '150');
 
-      let tbody = document.createElement('tbody'); // создаем тело таблицы
-      let tHead = document.createElement('tHead'); // создаем заголовок таблицы 
+     let tHead = document.createElement('tHead'); // создаем заголовок таблицы 
             tHead.innerHTML = '<td>Name</td><td>Age</td><td>Salary</td><td>City</td>'; // пишем в заголовок текст
         
             this.el.append(tHead); //добавляем заголовок в конец таблицы
-            
+
+
+         let tbody = document.createElement('tbody'); // создаем тело таблицы   
          let heading = ['name','age','salary','city']; // создаем перебираемый массив 
             for(let i = 0; i < countRows; i++){         
               let tr = document.createElement('tr'); //создаем элемент строка
